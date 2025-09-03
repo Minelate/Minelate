@@ -1,6 +1,7 @@
 package de.unknowncity.minelate.paper;
 
 import de.unknowncity.minelate.api.Translation;
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.entity.Player;
@@ -25,6 +26,6 @@ public class PaperTranslation extends Translation<Player> {
 
     @Override
     protected String applyPapiPlaceholders(String translationString, Player player) {
-        return PlaceholderApi;
+        return PlaceholderAPI.setPlaceholders(player, translationString);
     }
 }
