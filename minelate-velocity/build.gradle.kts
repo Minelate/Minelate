@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "de.unknowncity.minelate"
+group = "dev.thezexquex.minelate"
 version = "1.0-SNAPSHOT"
 
 repositories {

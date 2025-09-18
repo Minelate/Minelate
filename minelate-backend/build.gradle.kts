@@ -6,7 +6,7 @@ plugins {
 }
 
 version = "0.1"
-group = "de.unknowncity.minelate"
+group = "dev.thezexquex.minelate"
 
 repositories {
     mavenCentral()
@@ -23,8 +23,14 @@ dependencies {
     implementation("io.micronaut.security:micronaut-security")
     implementation("io.micronaut.security:micronaut-security-oauth2")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
+
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation("io.micronaut.flyway:micronaut-flyway")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    implementation("org.flywaydb:flyway-database-postgresql")
+
     compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
+    runtimeOnly("org.hibernate.orm:hibernate-core")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
     aotPlugins(platform("io.micronaut.platform:micronaut-platform:4.9.3"))
@@ -33,7 +39,7 @@ dependencies {
 
 
 application {
-    mainClass = "de.unknowncity.minelate.Application"
+    mainClass = "dev.thezexquex.minelate.Application"
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("21")
@@ -45,10 +51,13 @@ graalvmNative.toolchainDetection = false
 
 micronaut {
     runtime("netty")
+    testResources {
+        enabled.set(false)
+    }
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("de.unknowncity.minelate.*")
+        annotations("dev.thezexquex.minelate.*")
     }
     aot {
         // Please review carefully the optimizations enabled below

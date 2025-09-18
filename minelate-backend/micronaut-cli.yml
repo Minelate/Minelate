@@ -1,5 +1,5 @@
 applicationType: default
-defaultPackage: de.unknowncity.minelate
+defaultPackage: dev.thezexquex.minelate
 testFramework: junit
 sourceLanguage: java
 buildTool: gradle_kotlin
