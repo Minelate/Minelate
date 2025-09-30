@@ -15,6 +15,7 @@ dependencies {
     annotationProcessor(libs.velocity)
 
     implementation(project(":minelate-common"))
+    implementation("org.incendo:cloud-velocity:2.0.0-beta.10")
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")

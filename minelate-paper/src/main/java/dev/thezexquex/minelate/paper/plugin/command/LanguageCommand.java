@@ -1,7 +1,6 @@
 package dev.thezexquex.minelate.paper.plugin.command;
 
 import dev.thezexquex.minelate.paper.plugin.MinelatePaperPlugin;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -13,16 +12,14 @@ import org.incendo.cloud.suggestion.Suggestion;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 import static org.incendo.cloud.parser.standard.StringParser.stringParser;
 
-public class LanguageCommand {
-    private List<Locale> locales = List.of(Locale.ENGLISH, Locale.GERMAN);
-    private final MinelatePaperPlugin plugin;
+public class LanguageCommand extends BaseCommand {
+    private final List<Locale> locales = List.of(Locale.ENGLISH, Locale.GERMAN);
 
-    public LanguageCommand(MinelatePaperPlugin minelatePaperPlugin) {
-        this.plugin = minelatePaperPlugin;
+    public LanguageCommand(MinelatePaperPlugin plugin) {
+        super(plugin);
     }
 
     public void apply(CommandManager<CommandSender> commandManager) {

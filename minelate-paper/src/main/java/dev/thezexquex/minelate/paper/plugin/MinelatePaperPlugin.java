@@ -8,6 +8,7 @@ import dev.thezexquex.minelate.api.service.LocaleService;
 import dev.thezexquex.minelate.api.service.MinelateAPI;
 import dev.thezexquex.minelate.paper.api.provider.PaperLocaleProvider;
 import dev.thezexquex.minelate.paper.plugin.command.LanguageCommand;
+import dev.thezexquex.minelate.paper.plugin.command.MinelateCommand;
 import dev.thezexquex.minelate.paper.plugin.listener.PlayerJoinQuitListener;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
@@ -26,13 +27,14 @@ import java.util.Locale;
 public class MinelatePaperPlugin extends JavaPlugin implements Listener {
     private static Translation<Player> translation;
     private LocaleService localeService;
+    private TranslationProvider<Player> translationProvider;
 
     @Override
     public void onEnable() {
 
         this.localeService = new LocaleServiceIml(URI.create("http://localhost:8080/api/"), "asd", Locale.ENGLISH);
         var localeProvider = new PaperLocaleProvider(localeService);
-        TranslationProvider<Player> translationProvider = new TranslationProvider<>(getDataFolder().toPath(), localeProvider);
+        this.translationProvider = new TranslationProvider<>(getDataFolder().toPath(), localeProvider);
         MinelateAPI<Player> minelateAPI = new MinelateAPI<>(
                 translationProvider
         );
@@ -44,7 +46,7 @@ public class MinelatePaperPlugin extends JavaPlugin implements Listener {
         );
 
         new LanguageCommand(this).apply(commandManager);
-        // or: .buildBootstrapped(bootstrapContext);
+        new MinelateCommand(this).apply(commandManager);
 
         this.getServer().getPluginManager().registerEvents(this, this);
         this.getServer().getPluginManager().registerEvents(new PlayerJoinQuitListener(localeService), this);
@@ -71,5 +73,9 @@ public class MinelatePaperPlugin extends JavaPlugin implements Listener {
 
     public LocaleService localeService() {
         return localeService;
+    }
+
+    public void reload() {
+        translationProvider.reloadTranslations();
     }
 }

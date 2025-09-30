@@ -24,6 +24,14 @@ public class TranslationProvider<P> {
         return new Translation<>(projectId, this, localeProvider);
     }
 
+    public void reloadTranslations() {
+        translationProjects.forEach((projectId, translationProject) -> {
+            var bundles = ResourceBundleLoader.loadBundles(dataPath.resolve("language").resolve(projectId));
+            var newTranslationProject = new TranslationProject(projectId, bundles);
+            translationProjects.put(translationProject.projectId(), newTranslationProject);
+        });
+    }
+
     public String getTranslation(String projectId, Locale locale, String key) {
         var translationCatalog = translationProjects.get(projectId).getTranslationCatalog(locale);
         String translation;
