@@ -13,9 +13,6 @@ import java.util.UUID;
 public class PlayerLocale {
 
     @Id
-    @GeneratedValue
-    private Long id;
-
     @JsonProperty("player_uuid")
     @Column(name = "player_uuid", nullable = false, length = 36)
     private UUID playerUuid;
@@ -37,11 +34,11 @@ public class PlayerLocale {
     public String getLocale() { return locale; }
     public void setLocale(String lang) { this.locale = lang; }
 
-    public void setId(Long id) {
-        this.id = id;
+    public UUID playerUuid() {
+        return playerUuid;
     }
 
-    public Long getId() {
-        return id;
+    public void playerUuid(UUID playerUuid) {
+        this.playerUuid = playerUuid;
     }
 }

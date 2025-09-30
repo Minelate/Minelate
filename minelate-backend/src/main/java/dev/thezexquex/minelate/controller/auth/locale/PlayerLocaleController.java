@@ -30,14 +30,8 @@ public class PlayerLocaleController {
     }
 
     @Post
-    public PlayerLocale create(@Body PlayerLocale playerLocale) {
-        return playerLocaleRepository.save(playerLocale);
-    }
-
-    @Put("/{uuid}")
-    public PlayerLocale update(UUID uuid, @Body PlayerLocale body) {
-        body.setPlayerUuid(uuid);
-        return playerLocaleRepository.save(body);
+    public void create(@Body PlayerLocale playerLocale) {
+         playerLocaleRepository.upsert(playerLocale.getPlayerUuid(), playerLocale.getLocale());
     }
 
     @Delete("/{uuid}")

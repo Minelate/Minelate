@@ -6,7 +6,7 @@ import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
-import dev.thezexquex.minelate.api.LocaleServiceIml;
+import dev.thezexquex.minelate.api.service.LocaleServiceIml;
 import dev.thezexquex.minelate.api.Minelate;
 import dev.thezexquex.minelate.api.Translation;
 import dev.thezexquex.minelate.api.TranslationProvider;

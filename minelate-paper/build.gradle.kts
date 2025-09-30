@@ -18,6 +18,7 @@ dependencies {
     compileOnly(libs.paper)
     compileOnly(libs.papi)
     bukkitLibrary(libs.jackson)
+    implementation("org.incendo:cloud-paper:2.0.0-beta.10")
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
