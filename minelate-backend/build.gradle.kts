@@ -26,11 +26,9 @@ dependencies {
 
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.flyway:micronaut-flyway")
-    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     implementation("org.flywaydb:flyway-database-postgresql")
 
     compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
-    runtimeOnly("org.hibernate.orm:hibernate-core")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
     aotPlugins(platform("io.micronaut.platform:micronaut-platform:4.9.3"))
