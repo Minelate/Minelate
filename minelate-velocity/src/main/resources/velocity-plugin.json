@@ -1,0 +1,6 @@
+{
+  "name": "minelate",
+  "version": "${VERSION}",
+  "author": "",
+  "main": "${MAIN}"
+}

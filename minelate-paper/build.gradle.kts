@@ -1,9 +1,11 @@
 plugins {
     id("java")
+    id("xyz.jpenilla.run-paper") version "3.0.0"
+    id("de.eldoria.plugin-yml.bukkit") version "0.8.0"
+    id("com.gradleup.shadow") version "9.0.0"
 }
 
 group = "dev.thezexquex.minelate"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -13,11 +15,26 @@ repositories {
 
 dependencies {
     implementation(project(":minelate-common"))
-    compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT")
-    compileOnly("me.clip:placeholderapi:2.11.6")
+    compileOnly(libs.paper)
+    compileOnly(libs.papi)
+    bukkitLibrary(libs.jackson)
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+}
+
+bukkit {
+    version = rootProject.version.toString();
+    name = "Minelate"
+    main = "dev.thezexquex.minelate.paper.plugin.MinelatePaperPlugin"
+    author = "TheZexquex"
+}
+
+tasks {
+    runServer {
+        jvmArgs("-Dcom.mojang.eula.agree=true")
+        minecraftVersion("1.21.8")
+    }
 }
 
 tasks.test {

@@ -1,19 +1,21 @@
 package dev.thezexquex.minelate.api;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class TranslationProject {
     private final String projectId;
-    private final Map<Locale, Properties> translations = new HashMap<>();
+    private final Map<Locale, ResourceBundle> translations = new HashMap<>();
 
-    public TranslationProject(String projectId) {
+    public TranslationProject(String projectId, Map<Locale, ResourceBundle> translations) {
         this.projectId = projectId;
+        this.translations.putAll(translations);
     }
 
-    public Properties getTranslationCatalog(Locale locale) {
+    public ResourceBundle getTranslationCatalog(Locale locale) {
         return translations.get(locale);
+    }
+
+    public String projectId() {
+        return projectId;
     }
 }

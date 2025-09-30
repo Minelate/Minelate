@@ -1,21 +1,15 @@
 plugins {
     id("java")
-    id("net.kyori.blossom") version "2.1.0"
 }
 
 group = "dev.thezexquex.minelate"
+version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    maven("https://repo.papermc.io/repository/maven-public/")
 }
 
 dependencies {
-    compileOnly(libs.velocity)
-    annotationProcessor(libs.velocity)
-
-    implementation(project(":minelate-common"))
-
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
