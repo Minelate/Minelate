@@ -1,4 +1,4 @@
-package dev.thezexquex.minelate.controller.auth.locale;
+package dev.thezexquex.minelate.controller.locale;
 
 import dev.thezexquex.minelate.model.PlayerLocale;
 import dev.thezexquex.minelate.repository.PlayerLocaleRepository;

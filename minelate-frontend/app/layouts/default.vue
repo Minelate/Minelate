@@ -1,7 +1,7 @@
 <template>
-  <div class="overflow-hidden w-screen h-screen">
+  <div class="w-screen h-screen">
     <Navbar/>
-    <div class="bg-minelate-background-dark w-full h-screen">
+    <div class="bg-minelate-background-dark w-full min-h-screen">
       <slot/>
     </div>
   </div>
