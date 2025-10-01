@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <div>
-
-  </div>
+  <LoginMask />
 </template>
 
 <style scoped>

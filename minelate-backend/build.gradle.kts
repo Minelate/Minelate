@@ -22,6 +22,7 @@ dependencies {
     implementation("io.micronaut.data:micronaut-data-jdbc")
     implementation("io.micronaut.security:micronaut-security")
     implementation("io.micronaut.security:micronaut-security-oauth2")
+    implementation("io.micronaut.security:micronaut-security-session")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
 
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
