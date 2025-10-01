@@ -23,6 +23,7 @@ dependencies {
     implementation("io.micronaut.security:micronaut-security")
     implementation("io.micronaut.security:micronaut-security-oauth2")
     implementation("io.micronaut.security:micronaut-security-session")
+    implementation("io.micronaut.security:micronaut-security-jwt")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
 
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
@@ -70,7 +71,7 @@ micronaut {
         optimizeNetty = true
         replaceLogbackXml = true
         configurationProperties.put("micronaut.security.jwks.enabled","false")
-        configurationProperties.put("micronaut.security.openid-configuration.enabled","false")
+        configurationProperties.put("micronaut.security.openid-configuration.enabled","true")
     }
 }
 

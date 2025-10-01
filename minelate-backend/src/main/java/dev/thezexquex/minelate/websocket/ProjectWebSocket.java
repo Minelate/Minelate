@@ -26,7 +26,7 @@ public class ProjectWebSocket {
     private final Logger logger = Logger.getLogger(ProjectWebSocket.class.getName());
 
     @Inject
-    public ProjectWebSocket(WebSocketBroadcaster broadcaster, ObjectMapper mapper, ProjectRepository projectRepository, Logger logger) {
+    public ProjectWebSocket(WebSocketBroadcaster broadcaster, ObjectMapper mapper, ProjectRepository projectRepository) {
         this.broadcaster = broadcaster;
         this.mapper = mapper;
         this.projectRepository = projectRepository;

@@ -1,8 +1,5 @@
 <script setup lang="ts">
-function login() {
-  const base = useRuntimeConfig().public.apiBase
-  navigateTo(base + '/auth/login', { external: true})
-}
+const {login} = useAuth()
 </script>
 
 <template>
@@ -10,7 +7,7 @@ function login() {
     <div class="bg-white w-40 h-40 rounded"></div>
     <h2 class="font-dyna font-bold text-5xl my-10">Minelate Login</h2>
     <button class="bg-yellow-700 p-3 font-bold rounded-sm"
-    @click="login()">
+    @click="login">
       <span>Login with OAuth</span>
     </button>
   </div>
